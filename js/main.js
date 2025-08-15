@@ -23,3 +23,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+/* ============================================= */
+/* == NOVA LÓGICA PARA A FASE 3 == */
+/* ============================================= */
+
+// Lógica para animar elementos ao aparecer na tela (scrollytelling)
+
+// 1. Selecionamos todos os elementos que queremos animar (os que têm a classe 'hidden')
+const hiddenElements = document.querySelectorAll('.hidden');
+
+// 2. Criamos o nosso "vigia" (Intersection Observer)
+const observer = new IntersectionObserver((entries) => {
+    // 3. Para cada elemento que o vigia reportar...
+    entries.forEach((entry) => {
+        // 4. Verificamos se ele está visível na tela
+        if (entry.isIntersecting) {
+            // 5. Se estiver visível, removemos a classe 'hidden' para a animação acontecer
+            entry.target.classList.remove('hidden');
+            // 6. (Opcional) Depois que a animação acontece, paramos de vigiar o elemento para economizar recursos
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.2 // A animação começa quando 20% do elemento estiver visível
+});
+
+// 7. Mandamos o nosso vigia observar cada um dos elementos selecionados
+hiddenElements.forEach((el) => observer.observe(el));

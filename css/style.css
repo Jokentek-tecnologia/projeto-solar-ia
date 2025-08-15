@@ -232,3 +232,77 @@ nav ul a:hover {
     border-color: var(--primary-gold);
     box-shadow: 0 10px 30px -15px rgba(255, 215, 0, 0.2); /* Sombra dourada suave */
 }
+
+/* ============================================= */
+/* == NOVOS ESTILOS PARA A FASE 3 == */
+/* ============================================= */
+
+/* NOVO: Estilos da Seção "Como Funciona" */
+#how-it-works {
+    padding-bottom: 150px;
+    background-color: #081428; /* Um tom ligeiramente diferente para destacar a seção */
+}
+
+.how-it-works-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin-top: 80px;
+    position: relative;
+}
+
+/* Linha pontilhada que conecta os passos */
+.how-it-works-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    bottom: 20px;
+    width: 2px;
+    background-image: linear-gradient(var(--secondary-text) 50%, transparent 50%);
+    background-size: 2px 15px;
+    transform: translateX(-50%);
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    max-width: 600px;
+    width: 100%;
+    position: relative; /* Para ficar sobre a linha pontilhada */
+    background-color: #0A192F;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+
+.step-number {
+    font-family: var(--font-headline);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+    opacity: 0.5;
+}
+
+.step-content h4 {
+    font-family: var(--font-headline);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--light-text);
+}
+
+.step-content p {
+    color: var(--secondary-text);
+    line-height: 1.6;
+}
+
+/* A MÁGICA DA ANIMAÇÃO: ESTILOS DE TRANSIÇÃO */
+
+/* A classe 'hidden' esconde o elemento e o move para baixo */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out; /* Define a suavidade da animação */
+}
