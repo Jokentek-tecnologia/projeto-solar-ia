@@ -501,3 +501,38 @@ nav ul a:hover {
     width: auto;
     cursor: pointer;
 }
+
+/* ============================================= */
+/* == UPGRADE V2: ANIMAÇÃO 3D SPLINE == */
+/* ============================================= */
+
+/* Altera a seção HERO para ser um container para a animação */
+#hero {
+    position: relative; /* Essencial para o posicionamento do background */
+    overflow: hidden; /* Garante que a animação não "vaze" */
+}
+
+/* O container da nossa animação 3D */
+.spline-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Coloca a animação atrás do conteúdo */
+}
+
+/* Garante que o conteúdo do Hero (texto e botão) fique na frente */
+.hero-content {
+    position: relative;
+    z-index: 2; /* Fica na camada da frente */
+    /* Adicionamos um fundo sutil para garantir a legibilidade sobre a animação */
+    background: radial-gradient(circle, rgba(10, 25, 47, 0.5) 0%, rgba(10, 25, 47, 0.8) 70%, var(--dark-bg) 100%);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Garante que o indicador de scroll e a navegação também fiquem na frente */
+.scroll-down-indicator, header {
+    z-index: 3;
+}
