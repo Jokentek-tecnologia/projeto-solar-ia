@@ -113,12 +113,27 @@
             <a href="#contact" class="cta-button pioneer-cta">Solicitar Convite</a>
         </section>
         
-        <section id="contact" style="height: 200px; text-align: center; padding-top: 100px;">
-            <h2 class="section-title">Contato (Em breve)</h2>
+        <section id="contact" class="hidden">
+            <h2 class="section-title">Vamos Conversar?</h2>
+            <p class="subtitle">Envie uma mensagem para agendar uma demonstração ou para aplicar para o Programa de Parceiros Pioneiros.</p>
+            <form name="contact" method="POST" data-netlify="true" class="contact-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Seu Nome" required>
+                    <input type="text" name="company" placeholder="Nome da Empresa" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Seu Melhor Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Sua Mensagem" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Enviar Mensagem</button>
+            </form>
         </section>
         
     </main>
 
     <script src="js/main.js" defer></script>
+
 </body>
 </html>

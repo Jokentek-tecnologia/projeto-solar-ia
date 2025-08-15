@@ -436,3 +436,68 @@ nav ul a:hover {
         box-shadow: 0 0 25px 0 var(--primary-gold);
     }
 }
+
+/* ============================================= */
+/* == NOVOS ESTILOS PARA A FASE 5 (FINAL) == */
+/* ============================================= */
+
+/* NOVO: Estilos da Seção de Contato */
+#contact {
+    padding: 100px 50px 150px 50px;
+    text-align: center;
+    transition: all 0.8s ease-out; /* Adicionando para a animação de scroll */
+}
+
+#contact .subtitle {
+    max-width: 600px;
+    margin: 20px auto 50px auto;
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: #102444; /* Um pouco mais claro que o fundo */
+    border: 1px solid #1E3A5F;
+    border-radius: 5px;
+    color: var(--light-text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--secondary-text);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 10px 0 var(--primary-gold);
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form .cta-button {
+    align-self: center; /* Centraliza o botão */
+    width: auto;
+    cursor: pointer;
+}
