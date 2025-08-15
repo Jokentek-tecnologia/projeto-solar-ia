@@ -306,3 +306,133 @@ nav ul a:hover {
     transform: translateY(50px);
     transition: all 0.8s ease-out; /* Define a suavidade da animação */
 }
+
+/* ============================================= */
+/* == NOVOS ESTILOS PARA A FASE 4 == */
+/* ============================================= */
+
+/* NOVO: Estilos da Seção "Aplicações Práticas" */
+#use-cases {
+    padding: 150px 50px;
+}
+
+.use-case-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    transition: all 0.8s ease-out; /* Adicionando para a animação de scroll */
+}
+
+.use-case-description {
+    flex: 1;
+    text-align: left;
+}
+
+.use-case-description .section-title {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.use-case-description h3 {
+    font-family: var(--font-headline);
+    font-size: 1.8rem;
+    color: var(--light-text);
+    margin-bottom: 20px;
+}
+
+.challenge, .solution {
+    color: var(--secondary-text);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.challenge strong, .solution strong {
+    color: var(--light-text);
+    font-weight: 500;
+}
+
+.use-case-visual {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+}
+
+.visual-card {
+    background: linear-gradient(145deg, #102444, #0A192F);
+    border: 1px solid #1E3A5F;
+    border-radius: 8px;
+    padding: 30px;
+    width: 220px;
+    text-align: center;
+}
+
+.visual-card.after {
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 25px -10px var(--primary-gold);
+}
+
+.visual-card h4 {
+    font-family: var(--font-headline);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--secondary-text);
+}
+
+.metric-value {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: var(--font-headline);
+    margin-bottom: 5px;
+}
+
+.metric-value.down {
+    color: #FF5555; /* Um tom de vermelho para o negativo */
+}
+
+.metric-value.up {
+    color: var(--primary-gold);
+}
+
+.metric-label {
+    font-size: 1rem;
+    color: var(--light-text);
+}
+
+
+/* NOVO: Estilos da Seção "Programa de Parceiros" */
+#pioneer-program {
+    padding: 100px 50px;
+    background-color: #081428;
+    text-align: center;
+    border-top: 1px solid #1E3A5F;
+    border-bottom: 1px solid #1E3A5F;
+    transition: all 0.8s ease-out; /* Adicionando para a animação de scroll */
+}
+
+#pioneer-program .subtitle {
+    max-width: 700px;
+    margin: 20px auto 40px auto;
+}
+
+.pioneer-cta:hover {
+    animation: pulse 1s infinite;
+}
+
+/* Animação de pulso para o botão */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 25px 0 var(--primary-gold);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 40px 0 var(--primary-gold);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 25px 0 var(--primary-gold);
+    }
+}
