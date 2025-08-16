@@ -588,3 +588,68 @@ nav ul a:hover {
     color: var(--secondary-text);
     line-height: 1.6;
 }
+
+/* ================================================= */
+/* == UPGRADE DE FIM DE SEMANA: FOOTER E COPY == */
+/* ================================================= */
+
+/* NOVO: Estilos do Footer */
+.site-footer {
+    background-color: #081428;
+    border-top: 1px solid #1E3A5F;
+    padding: 50px;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+    transition: all 0.8s ease-out; /* Para animação de scroll */
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto 40px auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-about {
+    max-width: 300px;
+}
+
+.footer-logo {
+    font-family: var(--font-headline);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--light-text);
+    margin-bottom: 15px;
+}
+
+.footer-links h4 {
+    font-family: var(--font-headline);
+    color: var(--light-text);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul a {
+    color: var(--secondary-text);
+    transition: color 0.3s;
+}
+
+.footer-links ul a:hover {
+    color: var(--primary-gold);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #1E3A5F;
+    padding-top: 30px;
+    font-size: 0.8rem;
+}
