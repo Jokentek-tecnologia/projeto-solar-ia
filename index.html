@@ -33,7 +33,10 @@
             <div class="hero-content">
                 <h1 class="main-headline">Transforme Dados em Lucro.</h1>
                 <p class="subtitle">A Inteligência Artificial para o Setor Solar que otimiza sua operação e impulsiona seus resultados hoje.</p>
-                <a href="#solutions" class="cta-button">Descubra as Soluções</a>
+                <div class="hero-buttons">
+                    <a href="#solutions" class="cta-button">Descubra as Soluções</a>
+                    <a href="#" id="start-diagnostic-btn" class="cta-button secondary">Faça um Diagnóstico Gratuito</a>
+                </div>
             </div>
             <div class="scroll-down-indicator">
                 <a href="#solutions">
@@ -62,8 +65,7 @@
 
         <section id="about-us" class="hidden">
             <div class="about-container">
-                <div class="about-image">
-                    </div>
+                <div class="about-image"></div>
                 <div class="about-text">
                     <h2 class="section-title">Nossa Missão</h2>
                     <p><strong>[Aqui entra o texto do cliente]</strong> Fundada por especialistas com vasta experiência nos setores de energia e tecnologia, a Solaris AI nasceu para resolver o desafio central do setor solar: a eficiência operacional. Nossa missão é democratizar o acesso à inteligência de dados, permitindo que empresas de todos os portes otimizem seus processos, reduzam custos e liderem a transição para um futuro energético mais inteligente e sustentável.</p>
@@ -128,9 +130,30 @@
         </div>
         <div class="footer-bottom"><p>© 2025 Solaris AI. Todos os direitos reservados.</p></div>
     </footer>
+    
+    <div id="diagnostic-tool">
+        <button id="close-diagnostic-btn">&times;</button>
+        <div class="diagnostic-container">
+            <div id="quiz-screen" class="screen active">
+                <div class="progress-bar"><div class="step active">1</div><div class="step">2</div><div class="step">3</div></div>
+                <h3 id="question-text">Qual destas opções melhor descreve sua empresa?</h3>
+                <div id="answers-container" class="answers-grid">
+                    <button class="answer-btn">Distribuidora</button>
+                    <button class="answer-btn">Integradora</button>
+                    <button class="answer-btn">Fornecedora</button>
+                </div>
+            </div>
+            <div id="processing-screen" class="screen"><h3>Analisando suas respostas...</h3></div>
+            <div id="results-screen" class="screen">
+                <h2 id="result-title">Seu Maior Potencial: Redução de Custos</h2>
+                <p id="result-metric">Potencial de Economia de até 18%</p>
+                <p id="result-text">Nossa IA identifica ineficiências em tempo real, otimiza a distribuição e reduz perdas técnicas, convertendo dados em economia direta no seu caixa.</p>
+                <a href="#contact" id="schedule-session-btn" class="cta-button">Agende sua Sessão Estratégica Gratuita</a>
+            </div>
+        </div>
+    </div>
 
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.98/build/spline-viewer.js"></script>
     <script src="js/main.js" defer></script>
-
 </body>
 </html>

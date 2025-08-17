@@ -51,3 +51,31 @@ const observer = new IntersectionObserver((entries) => {
 
 // 7. Mandamos o nosso vigia observar cada um dos elementos selecionados
 hiddenElements.forEach((el) => observer.observe(el));
+
+/* ================================================= */
+/* == V2: JAVASCRIPT INICIAL DO DIAGNÓSTICO      == */
+/* ================================================= */
+
+// Seleciona os elementos da interface
+const startBtn = document.querySelector('#start-diagnostic-btn');
+const closeBtn = document.querySelector('#close-diagnostic-btn');
+const diagnosticTool = document.querySelector('#diagnostic-tool');
+const scheduleSessionBtn = document.querySelector('#schedule-session-btn');
+
+
+// Abre a ferramenta
+startBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // Impede que o link '#' cause um pulo na página
+    diagnosticTool.classList.add('active');
+});
+
+// Fecha a ferramenta
+closeBtn.addEventListener('click', () => {
+    diagnosticTool.classList.remove('active');
+});
+
+// Garante que o botão de agendar na tela de resultados também feche o modal
+scheduleSessionBtn.addEventListener('click', () => {
+    diagnosticTool.classList.remove('active');
+});
+
