@@ -880,3 +880,189 @@ nav ul a:hover {
     margin-bottom: 40px;
 }
 
+/* ================================================= */
+/* == REVAMP GERAL - ESTILOS DA PÁGINA DE VENDAS  == */
+/* ================================================= */
+
+/* Utilitários */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+section {
+    padding: 100px 0;
+    transition: all 0.8s ease-out;
+}
+.two-columns {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+.text-content { flex: 1; }
+.image-content { flex: 1; }
+
+/* Seção 2: Problema */
+.problem-list {
+    list-style-type: '❗️';
+    padding-left: 20px;
+    margin: 30px 0;
+}
+.problem-list li {
+    padding-left: 15px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: var(--secondary-text);
+}
+.solution-prompt {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--light-text);
+    margin-bottom: 30px;
+}
+.placeholder-image {
+    width: 100%;
+    height: 300px;
+    background-color: #102444;
+    border: 2px dashed #1E3A5F;
+    border-radius: 8px;
+}
+
+/* Seção 3: Soluções Grid */
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 60px 0;
+}
+.solution-column {
+    background: linear-gradient(145deg, #102444, #0A192F);
+    border: 1px solid #1E3A5F;
+    border-radius: 8px;
+    padding: 30px;
+}
+.solution-column h3 {
+    font-family: var(--font-headline);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.solution-column ul {
+    list-style: none;
+    color: var(--secondary-text);
+}
+.solution-column ul li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+.solution-column ul li::before {
+    content: '✓';
+    color: var(--primary-gold);
+    position: absolute;
+    left: 0;
+}
+
+/* Seção 4: Como Funciona (4 Passos) */
+.steps-4 {
+    flex-direction: row !important;
+    gap: 20px !important;
+}
+.steps-4::before { display: none !important; }
+.steps-4 .step {
+    flex: 1;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px !important;
+}
+.steps-4 .step-number { font-size: 2rem !important; }
+
+/* Seção 5: Missão */
+#mission {
+    background-color: #081428;
+    text-align: center;
+}
+.mission-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--light-text);
+}
+
+/* Seção 6 e 7 */
+.benefits-list {
+    list-style: none;
+    margin-top: 20px;
+}
+.benefits-list li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--secondary-text);
+}
+.benefits-list.checkmark li {
+    padding-left: 30px;
+    position: relative;
+}
+.benefits-list.checkmark li::before {
+    content: '✅';
+    position: absolute;
+    left: 0;
+}
+
+
+/* Seção 9: Contato CTA */
+.contact-cta {
+    font-size: 1.5rem !important;
+    padding: 20px 40px !important;
+}
+
+/* Seção 10: FAQ */
+#faq { background-color: #081428; }
+.faq-container {
+    max-width: 800px;
+    margin: 60px auto 0;
+}
+.faq-item {
+    border-bottom: 1px solid #1E3A5F;
+}
+.faq-question {
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    color: var(--light-text);
+}
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-size: 2rem;
+    transition: transform 0.3s;
+}
+.faq-item.active .faq-question::after {
+    transform: rotate(45deg);
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    color: var(--secondary-text);
+    line-height: 1.6;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Altura suficiente para a resposta */
+    padding: 20px;
+}
+
+/* Footer */
+.legal-text {
+    font-size: 0.7rem;
+    color: #555e77;
+    margin-top: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
