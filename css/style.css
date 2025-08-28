@@ -1,6 +1,9 @@
-/* Definição de Variáveis e Estilos Globais */
+/* ================================================= */
+/* == ESTILOS GERAIS E DE DESKTOP                 == */
+/* ================================================= */
+
 :root {
-    --dark-bg: #0A192F; /* Azul noite */
+    --dark-bg: #0A192F;
     --primary-gold: #FFD700;
     --light-text: #E6F1FF;
     --secondary-text: #8892B0;
@@ -23,7 +26,6 @@ body {
     color: var(--light-text);
     font-family: var(--font-body);
     overflow-x: hidden;
-    cursor: none; /* Escondemos o cursor padrão */
 }
 
 a {
@@ -31,7 +33,6 @@ a {
     text-decoration: none;
 }
 
-/* Efeito de Cursor (Nosso primeiro "UAU") */
 .cursor-glow {
     position: fixed;
     width: 20px;
@@ -42,7 +43,7 @@ a {
     top: 0;
     pointer-events: none;
     transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s;
+    transition: transform 0.2s;
     z-index: 9999;
 }
 
@@ -52,24 +53,30 @@ header {
     width: 100%;
     padding: 20px 50px;
     z-index: 100;
+    background-color: rgba(10, 25, 47, 0.8);
+    backdrop-filter: blur(10px);
+    transition: padding 0.3s;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo {
     font-family: var(--font-headline);
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
 nav ul {
     display: flex;
     list-style: none;
     gap: 30px;
+    align-items: center;
 }
 
 nav ul a {
@@ -93,35 +100,65 @@ nav ul a:hover {
     color: var(--dark-bg);
 }
 
-/* Estilo da Seção HERO */
+.hamburger-menu {
+    display: none; /* Escondido no desktop */
+}
+
+/* Estilos das seções... (copiados da versão anterior para garantir consistência) */
+/* ... (todos os estilos das seções problem, solutions, etc., vêm aqui) ... */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+section { padding: 100px 0; transition: all 0.8s ease-out; }
+.two-columns { display: flex; align-items: center; gap: 60px; }
+.text-content { flex: 1; }
+.image-content { flex: 1; }
 #hero {
+    position: relative;
+    background-color: var(--dark-bg);
+    overflow: hidden;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    text-align: center;
-    padding: 0 20px;
 }
-
-.hero-content {
+.hero-image-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+.hero-image-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6) contrast(1.2);
+    transform: scale(1.05);
+}
+#hero .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
     max-width: 800px;
 }
-
-.main-headline {
+#hero .main-headline {
+    font-size: 3.5rem;
     font-family: var(--font-headline);
-    font-size: 4rem; /* Tamanho grande e impactante */
-    font-weight: 700;
-    line-height: 1.1;
     margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
-
-.subtitle {
+#hero .subtitle {
     font-size: 1.2rem;
     color: var(--secondary-text);
-    max-width: 600px;
-    margin: 0 auto 40px auto;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
-
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
 .cta-button {
     font-family: var(--font-headline);
     font-size: 1rem;
@@ -132,596 +169,11 @@ nav ul a:hover {
     border-radius: 5px;
     border: 2px solid var(--primary-gold);
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 10px 0 var(--primary-gold); /* Efeito de brilho */
 }
-
 .cta-button:hover {
     background-color: transparent;
     color: var(--primary-gold);
     box-shadow: 0 0 25px 0 var(--primary-gold);
-}
-
-/* Placeholders para as próximas seções */
-#solutions, #how-it-works {
-    min-height: 50vh;
-    padding: 100px 50px;
-    text-align: center;
-}
-
-.section-title {
-    font-family: var(--font-headline);
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-}
-
-/* ============================================= */
-/* == NOVOS ESTILOS PARA A FASE 2 == */
-/* ============================================= */
-
-/* NOVO: Indicador de Scroll Down */
-.scroll-down-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.scroll-down-indicator span {
-    display: block;
-    width: 20px;
-    height: 20px;
-    border-bottom: 2px solid var(--secondary-text);
-    border-right: 2px solid var(--secondary-text);
-    transform: rotate(45deg);
-    animation: bounce 2s infinite;
-}
-
-/* Animação para o indicador de scroll */
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0) rotate(45deg);
-    }
-    40% {
-        transform: translateY(-15px) rotate(45deg);
-    }
-    60% {
-        transform: translateY(-8px) rotate(45deg);
-    }
-}
-
-
-/* NOVO: Estilos da Seção de Soluções */
-#solutions {
-    padding-top: 150px; /* Mais espaço para respirar */
-    padding-bottom: 150px;
-}
-
-.solutions-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap; /* Permite que os cards quebrem a linha em telas menores */
-    margin-top: 60px;
-}
-
-.solution-card {
-    background: linear-gradient(145deg, #102444, #0A192F);
-    border: 1px solid #1E3A5F;
-    border-radius: 8px;
-    padding: 35px 30px;
-    max-width: 320px;
-    text-align: left;
-    transition: all 0.3s ease-in-out;
-}
-
-.solution-card h3 {
-    font-family: var(--font-headline);
-    color: var(--light-text);
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.solution-card p {
-    color: var(--secondary-text);
-    line-height: 1.6;
-}
-
-/* O EFEITO "UAU" DA FASE 2 */
-.solution-card:hover {
-    transform: translateY(-10px); /* Levita o card */
-    border-color: var(--primary-gold);
-    box-shadow: 0 10px 30px -15px rgba(255, 215, 0, 0.2); /* Sombra dourada suave */
-}
-
-/* ============================================= */
-/* == NOVOS ESTILOS PARA A FASE 3 == */
-/* ============================================= */
-
-/* NOVO: Estilos da Seção "Como Funciona" */
-#how-it-works {
-    padding-bottom: 150px;
-    background-color: #081428; /* Um tom ligeiramente diferente para destacar a seção */
-}
-
-.how-it-works-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
-    margin-top: 80px;
-    position: relative;
-}
-
-/* Linha pontilhada que conecta os passos */
-.how-it-works-container::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 20px;
-    bottom: 20px;
-    width: 2px;
-    background-image: linear-gradient(var(--secondary-text) 50%, transparent 50%);
-    background-size: 2px 15px;
-    transform: translateX(-50%);
-}
-
-.step {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    max-width: 600px;
-    width: 100%;
-    position: relative; /* Para ficar sobre a linha pontilhada */
-    background-color: #0A192F;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid transparent;
-}
-
-.step-number {
-    font-family: var(--font-headline);
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--primary-gold);
-    opacity: 0.5;
-}
-
-.step-content h4 {
-    font-family: var(--font-headline);
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: var(--light-text);
-}
-
-.step-content p {
-    color: var(--secondary-text);
-    line-height: 1.6;
-}
-
-/* A MÁGICA DA ANIMAÇÃO: ESTILOS DE TRANSIÇÃO */
-
-/* A classe 'hidden' esconde o elemento e o move para baixo */
-.hidden {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out; /* Define a suavidade da animação */
-}
-
-/* ============================================= */
-/* == NOVOS ESTILOS PARA A FASE 4 == */
-/* ============================================= */
-
-/* NOVO: Estilos da Seção "Aplicações Práticas" */
-#use-cases {
-    padding: 150px 50px;
-}
-
-.use-case-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 60px;
-    max-width: 1100px;
-    margin: 0 auto;
-    transition: all 0.8s ease-out; /* Adicionando para a animação de scroll */
-}
-
-.use-case-description {
-    flex: 1;
-    text-align: left;
-}
-
-.use-case-description .section-title {
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-.use-case-description h3 {
-    font-family: var(--font-headline);
-    font-size: 1.8rem;
-    color: var(--light-text);
-    margin-bottom: 20px;
-}
-
-.challenge, .solution {
-    color: var(--secondary-text);
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-.challenge strong, .solution strong {
-    color: var(--light-text);
-    font-weight: 500;
-}
-
-.use-case-visual {
-    flex: 1;
-    display: flex;
-    gap: 20px;
-}
-
-.visual-card {
-    background: linear-gradient(145deg, #102444, #0A192F);
-    border: 1px solid #1E3A5F;
-    border-radius: 8px;
-    padding: 30px;
-    width: 220px;
-    text-align: center;
-}
-
-.visual-card.after {
-    border-color: var(--primary-gold);
-    box-shadow: 0 0 25px -10px var(--primary-gold);
-}
-
-.visual-card h4 {
-    font-family: var(--font-headline);
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    color: var(--secondary-text);
-}
-
-.metric-value {
-    font-size: 3rem;
-    font-weight: 700;
-    font-family: var(--font-headline);
-    margin-bottom: 5px;
-}
-
-.metric-value.down {
-    color: #FF5555; /* Um tom de vermelho para o negativo */
-}
-
-.metric-value.up {
-    color: var(--primary-gold);
-}
-
-.metric-label {
-    font-size: 1rem;
-    color: var(--light-text);
-}
-
-
-/* NOVO: Estilos da Seção "Programa de Parceiros" */
-#pioneer-program {
-    padding: 100px 50px;
-    background-color: #081428;
-    text-align: center;
-    border-top: 1px solid #1E3A5F;
-    border-bottom: 1px solid #1E3A5F;
-    transition: all 0.8s ease-out; /* Adicionando para a animação de scroll */
-}
-
-#pioneer-program .subtitle {
-    max-width: 700px;
-    margin: 20px auto 40px auto;
-}
-
-.pioneer-cta:hover {
-    animation: pulse 1s infinite;
-}
-
-/* Animação de pulso para o botão */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 0 25px 0 var(--primary-gold);
-    }
-    50% {
-        transform: scale(1.05);
-        box-shadow: 0 0 40px 0 var(--primary-gold);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 0 25px 0 var(--primary-gold);
-    }
-}
-
-/* ============================================= */
-/* == NOVOS ESTILOS PARA A FASE 5 (FINAL) == */
-/* ============================================= */
-
-/* NOVO: Estilos da Seção de Contato */
-#contact {
-    padding: 100px 50px 150px 50px;
-    text-align: center;
-    transition: all 0.8s ease-out; /* Adicionando para a animação de scroll */
-}
-
-#contact .subtitle {
-    max-width: 600px;
-    margin: 20px auto 50px auto;
-}
-
-.contact-form {
-    max-width: 700px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-group {
-    display: flex;
-    gap: 20px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 15px;
-    background-color: #102444; /* Um pouco mais claro que o fundo */
-    border: 1px solid #1E3A5F;
-    border-radius: 5px;
-    color: var(--light-text);
-    font-family: var(--font-body);
-    font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: var(--secondary-text);
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--primary-gold);
-    box-shadow: 0 0 10px 0 var(--primary-gold);
-}
-
-.contact-form textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-
-.contact-form .cta-button {
-    align-self: center; /* Centraliza o botão */
-    width: auto;
-    cursor: pointer;
-}
-
-/* ============================================= */
-/* == UPGRADE V2: ANIMAÇÃO 3D SPLINE == */
-/* ============================================= */
-
-/* Altera a seção HERO para ser um container para a animação */
-#hero {
-    position: relative; /* Essencial para o posicionamento do background */
-    overflow: hidden; /* Garante que a animação não "vaze" */
-}
-
-/* O container da nossa animação 3D */
-.spline-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1; /* Coloca a animação atrás do conteúdo */
-}
-
-/* Garante que o conteúdo do Hero (texto e botão) fique na frente */
-.hero-content {
-    position: relative;
-    z-index: 2; /* Fica na camada da frente */
-    /* Adicionamos um fundo sutil para garantir a legibilidade sobre a animação */
-    background: radial-gradient(circle, rgba(10, 25, 47, 0.5) 0%, rgba(10, 25, 47, 0.8) 70%, var(--dark-bg) 100%);
-    padding: 20px;
-    border-radius: 10px;
-}
-
-/* Garante que o indicador de scroll e a navegação também fiquem na frente */
-.scroll-down-indicator, header {
-    z-index: 3;
-}
-
-/* ================================================= */
-/* == UPGRADE DE FIM DE SEMANA: SEÇÃO BENEFÍCIOS == */
-/* ================================================= */
-
-#key-benefits {
-    padding: 100px 50px;
-    background-color: #081428;
-    transition: all 0.8s ease-out; /* Para animação de scroll */
-}
-
-.benefits-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    max-width: 1100px;
-    margin: 60px auto 0;
-    text-align: center;
-}
-
-.benefit-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.benefit-icon {
-    color: var(--primary-gold);
-    font-size: 2.5rem;
-    font-weight: 700;
-    border: 2px solid var(--primary-gold);
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.benefit-item h4 {
-    font-family: var(--font-headline);
-    font-size: 1.5rem;
-    color: var(--light-text);
-    margin-bottom: 15px;
-}
-
-.benefit-item p {
-    color: var(--secondary-text);
-    line-height: 1.6;
-}
-
-/* ================================================= */
-/* == UPGRADE DE FIM DE SEMANA: FOOTER E COPY == */
-/* ================================================= */
-
-/* NOVO: Estilos do Footer */
-.site-footer {
-    background-color: #081428;
-    border-top: 1px solid #1E3A5F;
-    padding: 50px;
-    font-size: 0.9rem;
-    color: var(--secondary-text);
-    transition: all 0.8s ease-out; /* Para animação de scroll */
-}
-
-.footer-container {
-    max-width: 1100px;
-    margin: 0 auto 40px auto;
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-}
-
-.footer-about {
-    max-width: 300px;
-}
-
-.footer-logo {
-    font-family: var(--font-headline);
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--light-text);
-    margin-bottom: 15px;
-}
-
-.footer-links h4 {
-    font-family: var(--font-headline);
-    color: var(--light-text);
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-}
-
-.footer-links ul {
-    list-style: none;
-}
-
-.footer-links ul li {
-    margin-bottom: 10px;
-}
-
-.footer-links ul a {
-    color: var(--secondary-text);
-    transition: color 0.3s;
-}
-
-.footer-links ul a:hover {
-    color: var(--primary-gold);
-}
-
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid #1E3A5F;
-    padding-top: 30px;
-    font-size: 0.8rem;
-}
-
-/* ================================================= */
-/* == UPGRADE DE FIM DE SEMANA: SEÇÃO SOBRE NÓS == */
-/* ================================================= */
-
-#about-us {
-    padding: 100px 50px;
-    background-color: var(--dark-bg);
-    transition: all 0.8s ease-out; /* Para animação de scroll */
-}
-
-.about-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 60px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.about-image {
-    flex: 0 0 300px; /* Não cresce, não encolhe, base de 300px */
-    width: 300px;
-    height: 300px;
-    background-color: #102444;
-    border: 2px solid #1E3A5F;
-    border-radius: 50%;
-    /* No futuro, usaremos background-image para a foto */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--secondary-text);
-    text-align: center;
-    font-family: var(--font-headline);
-}
-
-.about-image::before {
-    content: "Foto do Fundador";
-}
-
-.about-text {
-    flex: 1;
-    text-align: left;
-}
-
-.about-text .section-title {
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-.about-text p {
-    color: var(--secondary-text);
-    line-height: 1.7;
-}
-
-.about-text p strong {
-    color: var(--light-text);
-    font-weight: 500;
-}
-
-/* ================================================= */
-/* == V2: ESTILOS DA FERRAMENTA DE DIAGNÓSTICO  == */
-/* ================================================= */
-
-/* Botão secundário na seção Hero */
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
 }
 .cta-button.secondary {
     background-color: transparent;
@@ -731,178 +183,6 @@ nav ul a:hover {
     background-color: var(--primary-gold);
     color: var(--dark-bg);
 }
-
-/* Container principal da ferramenta (overlay) */
-#diagnostic-tool {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(10, 25, 47, 0.95);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-}
-#diagnostic-tool.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* Botão de fechar */
-#close-diagnostic-btn {
-    position: absolute;
-    top: 30px;
-    right: 40px;
-    background: none;
-    border: none;
-    color: var(--secondary-text);
-    font-size: 3rem;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-#close-diagnostic-btn:hover {
-    color: var(--light-text);
-}
-
-
-/* Container do conteúdo do Quiz */
-.diagnostic-container {
-    background-color: var(--dark-bg);
-    border: 1px solid #1E3A5F;
-    border-radius: 10px;
-    padding: 50px;
-    width: 90%;
-    max-width: 700px;
-    text-align: center;
-}
-
-.screen {
-    display: none; /* Esconde todas as telas por padrão */
-}
-.screen.active {
-    display: block; /* Mostra apenas a tela ativa */
-}
-
-
-/* Barra de Progresso */
-.progress-bar {
-    display: flex;
-    justify-content: space-between;
-    max-width: 300px;
-    margin: 0 auto 40px;
-    position: relative;
-}
-.progress-bar::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-color: #1E3A5F;
-    transform: translateY(-50%);
-    z-index: 1;
-}
-.progress-bar .step {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: var(--dark-bg);
-    border: 2px solid #1E3A5F;
-    color: var(--secondary-text);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    z-index: 2;
-    transition: all 0.4s;
-}
-.progress-bar .step.active {
-    border-color: var(--primary-gold);
-    color: var(--primary-gold);
-}
-
-
-/* Perguntas e Respostas */
-#question-text {
-    font-family: var(--font-headline);
-    font-size: 2rem;
-    color: var(--light-text);
-    margin-bottom: 40px;
-}
-
-.answers-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-}
-
-.answer-btn {
-    background-color: #102444;
-    border: 1px solid #1E3A5F;
-    color: var(--light-text);
-    padding: 20px;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-align: left;
-}
-.answer-btn:hover {
-    background-color: var(--primary-gold);
-    color: var(--dark-bg);
-    border-color: var(--primary-gold);
-    transform: scale(1.02);
-}
-
-
-/* Tela de Resultados */
-#results-screen h2 {
-    font-family: var(--font-headline);
-    font-size: 2.5rem;
-    color: var(--light-text);
-    margin-bottom: 15px;
-}
-#results-screen #result-metric {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary-gold);
-    margin-bottom: 25px;
-}
-#results-screen #result-text {
-    color: var(--secondary-text);
-    line-height: 1.6;
-    margin-bottom: 40px;
-}
-
-/* ================================================= */
-/* == REVAMP GERAL - ESTILOS DA PÁGINA DE VENDAS  == */
-/* ================================================= */
-
-/* Utilitários */
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-section {
-    padding: 100px 0;
-    transition: all 0.8s ease-out;
-}
-.two-columns {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-}
-.text-content { flex: 1; }
-.image-content { flex: 1; }
-
-/* Seção 2: Problema */
 .problem-list {
     list-style-type: '❗️';
     padding-left: 20px;
@@ -920,15 +200,6 @@ section {
     color: var(--light-text);
     margin-bottom: 30px;
 }
-.placeholder-image {
-    width: 100%;
-    height: 300px;
-    background-color: #102444;
-    border: 2px dashed #1E3A5F;
-    border-radius: 8px;
-}
-
-/* Seção 3: Soluções Grid */
 .solutions-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -940,6 +211,7 @@ section {
     border: 1px solid #1E3A5F;
     border-radius: 8px;
     padding: 30px;
+    text-align: center;
 }
 .solution-column h3 {
     font-family: var(--font-headline);
@@ -949,6 +221,7 @@ section {
 .solution-column ul {
     list-style: none;
     color: var(--secondary-text);
+    text-align: left;
 }
 .solution-column ul li {
     margin-bottom: 10px;
@@ -961,22 +234,21 @@ section {
     position: absolute;
     left: 0;
 }
-
-/* Seção 4: Como Funciona (4 Passos) */
-.steps-4 {
-    flex-direction: row !important;
-    gap: 20px !important;
+.how-it-works-container.steps-4 {
+    display: flex;
+    gap: 20px;
 }
-.steps-4::before { display: none !important; }
 .steps-4 .step {
     flex: 1;
+    display: flex;
     flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 20px !important;
 }
-.steps-4 .step-number { font-size: 2rem !important; }
-
-/* Seção 5: Missão */
+.steps-4 .step-content h4 {
+    font-family: var(--font-headline);
+    margin-bottom: 10px;
+}
 #mission {
     background-color: #081428;
     text-align: center;
@@ -989,8 +261,6 @@ section {
     margin: 0 auto;
     color: var(--light-text);
 }
-
-/* Seção 6 e 7 */
 .benefits-list {
     list-style: none;
     margin-top: 20px;
@@ -1009,15 +279,10 @@ section {
     position: absolute;
     left: 0;
 }
-
-
-/* Seção 9: Contato CTA */
 .contact-cta {
     font-size: 1.5rem !important;
     padding: 20px 40px !important;
 }
-
-/* Seção 10: FAQ */
 #faq { background-color: #081428; }
 .faq-container {
     max-width: 800px;
@@ -1053,11 +318,58 @@ section {
     transition: max-height 0.4s ease-out, padding 0.4s ease-out;
 }
 .faq-item.active .faq-answer {
-    max-height: 200px; /* Altura suficiente para a resposta */
+    max-height: 200px;
     padding: 20px;
 }
-
-/* Footer */
+.site-footer {
+    background-color: #081428;
+    border-top: 1px solid #1E3A5F;
+    padding: 50px;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto 40px auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+.footer-about {
+    max-width: 300px;
+}
+.footer-logo {
+    font-family: var(--font-headline);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--light-text);
+    margin-bottom: 15px;
+}
+.footer-links h4 {
+    font-family: var(--font-headline);
+    color: var(--light-text);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+.footer-links ul {
+    list-style: none;
+}
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+.footer-links ul a {
+    color: var(--secondary-text);
+    transition: color 0.3s;
+}
+.footer-links ul a:hover {
+    color: var(--primary-gold);
+}
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #1E3A5F;
+    padding-top: 30px;
+    font-size: 0.8rem;
+}
 .legal-text {
     font-size: 0.7rem;
     color: #555e77;
@@ -1066,362 +378,112 @@ section {
     margin-left: auto;
     margin-right: auto;
 }
-
-/* ================================================= */
-/* == ESTILOS PARA AS IMAGENS DO NOVO CONTEÚDO  == */
-/* ================================================= */
-
-/* Fundo da seção Hero com imagem */
-#hero {
-    position: relative;
-    background-color: var(--dark-bg); /* Garante um fundo caso a imagem demore a carregar */
-    overflow: hidden; /* Garante que a imagem não vaze */
-}
-.hero-image-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 0; /* Abaixo do conteúdo principal */
-}
-.hero-image-background img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cobre todo o espaço mantendo proporções */
-    filter: brightness(0.6) contrast(1.2); /* Escurece e aumenta o contraste para o texto se destacar */
-    transform: scale(1.05); /* Pequeno zoom para evitar bordas */
-}
-#hero .hero-content {
-    position: relative; /* Garante que o conteúdo fique acima da imagem */
-    z-index: 1;
-}
-#hero .main-headline, #hero .subtitle {
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Adiciona sombra ao texto para melhorar legibilidade */
-}
-
-
-/* Imagens genéricas de seção */
 .section-image {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    object-fit: cover; /* Garante que a imagem se ajuste bem */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    object-fit: cover;
 }
-
 .full-width-image {
-    margin-top: 40px; /* Espaçamento após o texto ou lista */
-    width: 100%; /* Garante que a imagem ocupe a largura total do container */
-    max-height: 400px; /* Limita a altura para não ficar muito grande */
+    margin-top: 40px;
+    width: 100%;
+    max-height: 400px;
 }
-
-
-/* Ícones das colunas de solução */
 .solution-column .solution-icon {
     width: 80px;
     height: 80px;
     margin-bottom: 20px;
-    background-color: #1E3A5F; /* Fundo para os ícones */
+    background-color: #1E3A5F;
     padding: 15px;
     border-radius: 10px;
-    object-fit: contain; /* Garante que o ícone se ajuste sem cortar */
+    object-fit: contain;
 }
-
-/* Ícones dos passos 'Como Funciona' */
 .how-it-works-container .step .step-icon {
     width: 70px;
     height: 70px;
     margin-bottom: 15px;
     background-color: #1E3A5F;
     padding: 10px;
-    border-radius: 50%; /* Circular para os ícones de passo */
+    border-radius: 50%;
     object-fit: contain;
 }
 
-/* Esconde o placeholder antigo */
-.placeholder-image {
-    display: none;
-}
-
 /* ================================================= */
-/* == RESPONSIVIDADE (MEDIA QUERIES)              == */
+/* == NOVA RESPONSIVIDADE CORRIGIDA (MOBILE-FIRST) == */
 /* ================================================= */
 
 /* Para telas menores que 768px (smartphones) */
 @media (max-width: 768px) {
-    /* Header e Navegação */
+    body.nav-open {
+        overflow: hidden; /* Impede o scroll do site quando o menu está aberto */
+    }
+
     header {
         padding: 15px 20px;
     }
 
-    nav {
+    /* Estilo do Menu Hambúrguer */
+    .hamburger-menu {
+        display: flex;
         flex-direction: column;
-        align-items: center;
-    }
-
-    nav .logo {
-        margin-bottom: 15px;
-        font-size: 1.8rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-    }
-
-    nav ul li {
-        margin: 8px 0;
-    }
-
-    nav ul li a {
-        font-size: 1rem;
-        padding: 8px 15px;
-    }
-
-    /* Hero Section */
-    #hero {
-        padding: 120px 20px 60px; /* Mais espaço no topo para o cabeçalho fixo */
-        height: auto; /* Altura automática */
-    }
-    .hero-content {
-        text-align: center;
-        max-width: 100%;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
         padding: 0;
+        z-index: 10;
     }
-    .main-headline {
-        font-size: 2.2rem;
-        line-height: 1.2;
+    .hamburger-menu .line {
+        width: 30px;
+        height: 3px;
+        background-color: var(--light-text);
+        border-radius: 10px;
+        transition: all 0.3s linear;
+        position: relative;
+        transform-origin: 1px;
     }
-    .subtitle {
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-    .hero-buttons {
+    
+    /* Menu de Navegação Mobile (escondido por padrão) */
+    #nav-links {
+        display: flex;
         flex-direction: column;
-        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--dark-bg);
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100%;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
     }
-    .hero-buttons .cta-button {
-        width: 90%; /* Botões maiores no celular */
-        padding: 15px 20px;
-        font-size: 1rem;
+    #nav-links.active {
+        transform: translateX(0);
     }
-    .scroll-down-indicator {
-        bottom: 20px;
-    }
-
-    /* Seções Genéricas */
-    section {
-        padding: 60px 20px; /* Reduz o padding vertical das seções */
-    }
-    .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-    }
-    .subtitle {
-        font-size: 0.95rem;
-    }
-    .container.two-columns {
-        flex-direction: column; /* Colunas empilham */
-        gap: 40px;
-    }
-    .section-image.full-width-image {
-        max-height: 300px; /* Reduz a altura máxima das imagens maiores */
-    }
-
-    /* Seção Problema */
-    .problem-list {
-        padding-left: 10px;
+    #nav-links li {
         margin: 20px 0;
     }
-    .problem-list li {
-        font-size: 0.95rem;
-        padding-left: 10px;
-        margin-bottom: 10px;
-    }
-    .solution-prompt {
-        font-size: 1.05rem;
-        margin-bottom: 20px;
-    }
-
-    /* Seção Soluções (Grid) */
-    .solutions-grid {
-        grid-template-columns: 1fr; /* Uma coluna apenas */
-        gap: 20px;
-        margin: 40px 0;
-    }
-    .solution-column {
-        padding: 25px;
-    }
-    .solution-column h3 {
-        font-size: 1.3rem;
-    }
-    .solution-column ul li {
-        font-size: 0.9rem;
-    }
-
-    /* Seção Como Funciona (4 Passos) */
-    .how-it-works-container.steps-4 {
-        flex-direction: column !important; /* Empilha os passos */
-        gap: 30px !important;
-    }
-    .steps-4 .step {
-        padding: 20px !important;
-    }
-    .steps-4 .step-content h4 {
-        font-size: 1.1rem;
-    }
-    .steps-4 .step-content p {
-        font-size: 0.9rem;
-    }
-
-
-    /* Seção Missão */
-    .mission-text {
-        font-size: 1.2rem;
-    }
-
-    /* Seção Resultados Personalizados / Por Que Nos Escolher */
-    #why-us .text-content h2 {
-        font-size: 1.5rem; /* Ajusta o título para caber melhor */
-        margin-top: 40px; /* Espaço entre as duas colunas quando empilhadas */
-    }
-    #why-us .text-content:first-child h2 {
-        margin-top: 0; /* O primeiro título não precisa de margin-top */
-    }
-    .benefits-list li {
-        font-size: 0.95rem;
-        margin-bottom: 10px;
-    }
-
-    /* Seção Pioneiro e Contato */
-    .cta-button.pioneer-cta,
-    .cta-button.contact-cta {
-        font-size: 1.1rem;
-        padding: 15px 25px;
-    }
-
-    /* Seção FAQ */
-    .faq-question {
-        font-size: 1.05rem;
-        padding: 15px;
-    }
-    .faq-question::after {
-        right: 15px;
+    #nav-links a {
         font-size: 1.5rem;
     }
-    .faq-answer {
-        padding: 0 15px;
-        font-size: 0.9rem;
-    }
-    .faq-item.active .faq-answer {
-        padding: 15px;
+    .nav-cta {
+        font-size: 1.2rem !important;
     }
 
-    /* Footer */
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-    }
-    .footer-links {
-        margin-top: 20px;
-    }
-    .footer-links h4 {
-        margin-bottom: 10px;
-    }
-    .footer-links ul {
-        padding: 0;
-    }
-    .footer-links ul li {
-        display: inline-block; /* Links em linha no footer mobile */
-        margin: 0 8px;
-    }
-    .footer-bottom {
-        padding-top: 20px;
-    }
-    .footer-bottom p {
-        font-size: 0.8rem;
-    }
-    .legal-text {
-        margin-top: 15px;
-        font-size: 0.65rem;
-    }
-}
-
-/* Para telas entre 769px e 1024px (tablets e laptops pequenos) */
-@media (min-width: 769px) and (max-width: 1024px) {
-    header {
-        padding: 20px 40px;
-    }
-    nav .logo {
-        font-size: 2.2rem;
-    }
-    nav ul li {
-        margin-left: 25px;
-    }
-    nav ul li a {
-        font-size: 0.95rem;
-    }
-
-    #hero .hero-content {
-        max-width: 80%;
-    }
-    .main-headline {
-        font-size: 3rem;
-    }
-    .subtitle {
-        font-size: 1.1rem;
-    }
-    .hero-buttons .cta-button {
-        padding: 15px 30px;
-        font-size: 1rem;
-    }
-
-    section {
-        padding: 80px 30px;
-    }
-    .section-title {
-        font-size: 2.2rem;
-    }
-    .container {
-        padding: 0 30px;
-    }
-
-    .solutions-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Mantém 2 ou 3 colunas se houver espaço */
-        gap: 25px;
-    }
-
-    .how-it-works-container.steps-4 {
-        flex-wrap: wrap; /* Permite quebrar em duas linhas se necessário */
-        justify-content: center;
-    }
-    .steps-4 .step {
-        flex-basis: 45%; /* Duas colunas em telas maiores de tablet */
-        max-width: 45%;
-    }
-
-    .footer-container {
-        padding: 0 30px;
-    }
-}
-
-/* Ajustes para telas muito pequenas, caso necessário (ex: iPhone SE) */
-@media (max-width: 375px) {
-    .main-headline {
-        font-size: 1.8rem;
-    }
-    .subtitle {
-        font-size: 0.9rem;
-    }
-    .hero-buttons .cta-button {
-        font-size: 0.9rem;
-        padding: 12px 15px;
-    }
-    .section-title {
-        font-size: 1.6rem;
-    }
+    /* Ajustes Gerais */
+    .section-title { font-size: 2rem; }
+    .two-columns { flex-direction: column; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .cta-button { width: 100%; max-width: 300px; } /* Botões não cortam mais */
+    .solutions-grid { grid-template-columns: 1fr; }
+    .how-it-works-container.steps-4 { flex-direction: column !important; }
+    .footer-container { flex-direction: column; text-align: center; }
+    .main-headline { font-size: 2.5rem; }
+    .subtitle { font-size: 1.1rem; }
+    #hero { padding-top: 100px; height: auto; min-height: 80vh; }
+    .full-width-image { margin-top: 20px; }
 }
