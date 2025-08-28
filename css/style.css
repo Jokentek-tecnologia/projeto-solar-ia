@@ -1066,3 +1066,81 @@ section {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* ================================================= */
+/* == ESTILOS PARA AS IMAGENS DO NOVO CONTEÚDO  == */
+/* ================================================= */
+
+/* Fundo da seção Hero com imagem */
+#hero {
+    position: relative;
+    background-color: var(--dark-bg); /* Garante um fundo caso a imagem demore a carregar */
+    overflow: hidden; /* Garante que a imagem não vaze */
+}
+.hero-image-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0; /* Abaixo do conteúdo principal */
+}
+.hero-image-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cobre todo o espaço mantendo proporções */
+    filter: brightness(0.6) contrast(1.2); /* Escurece e aumenta o contraste para o texto se destacar */
+    transform: scale(1.05); /* Pequeno zoom para evitar bordas */
+}
+#hero .hero-content {
+    position: relative; /* Garante que o conteúdo fique acima da imagem */
+    z-index: 1;
+}
+#hero .main-headline, #hero .subtitle {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Adiciona sombra ao texto para melhorar legibilidade */
+}
+
+
+/* Imagens genéricas de seção */
+.section-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    object-fit: cover; /* Garante que a imagem se ajuste bem */
+}
+
+.full-width-image {
+    margin-top: 40px; /* Espaçamento após o texto ou lista */
+    width: 100%; /* Garante que a imagem ocupe a largura total do container */
+    max-height: 400px; /* Limita a altura para não ficar muito grande */
+}
+
+
+/* Ícones das colunas de solução */
+.solution-column .solution-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    background-color: #1E3A5F; /* Fundo para os ícones */
+    padding: 15px;
+    border-radius: 10px;
+    object-fit: contain; /* Garante que o ícone se ajuste sem cortar */
+}
+
+/* Ícones dos passos 'Como Funciona' */
+.how-it-works-container .step .step-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+    background-color: #1E3A5F;
+    padding: 10px;
+    border-radius: 50%; /* Circular para os ícones de passo */
+    object-fit: contain;
+}
+
+/* Esconde o placeholder antigo */
+.placeholder-image {
+    display: none;
+}

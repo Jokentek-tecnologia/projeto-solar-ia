@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cursorGlow.style.left = e.clientX + 'px';
             cursorGlow.style.top = e.clientY + 'px';
         });
+        // Ajuste: Cursor interage apenas com elementos interativos, não com a imagem de fundo estática
         document.querySelectorAll('a, button, .faq-question').forEach(elem => {
             elem.addEventListener('mouseover', () => { cursorGlow.style.transform = 'scale(1.5)'; });
             elem.addEventListener('mouseout', () => { cursorGlow.style.transform = 'scale(1)'; });
@@ -27,19 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
         hiddenElements.forEach((el) => observer.observe(el));
     }
 
-    // NOVA LÓGICA PARA O FAQ
+    // Lógica para o FAQ (Mantido)
     const faqItems = document.querySelectorAll('.faq-item');
     if (faqItems.length > 0) {
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
             question.addEventListener('click', () => {
-                // Fecha outros itens abertos para um efeito "accordion"
                 faqItems.forEach(otherItem => {
                     if (otherItem !== item && otherItem.classList.contains('active')) {
                         otherItem.classList.remove('active');
                     }
                 });
-                // Abre ou fecha o item clicado
                 item.classList.toggle('active');
             });
         });
