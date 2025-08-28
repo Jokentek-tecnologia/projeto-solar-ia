@@ -482,25 +482,30 @@ section { padding: 100px 0; transition: all 0.8s ease-out; }
     /* === CORREÇÃO DOS BOTÕES === */
     .hero-buttons {
         flex-direction: column;
-        align-items: center; /* Centraliza os botões */
-        gap: 15px; /* Espaço entre botões quando empilhados */
+        align-items: center; 
+        gap: 15px;
     }
     .cta-button {
-        width: 100%; /* Botões ocupam a largura total em mobile */
-        max-width: 320px; /* Limita a largura máxima para não ficarem gigantes em tablets pequenos */
-        padding: 15px 15px; /* Ajusta o padding para caber o texto */
-        font-size: 0.95rem; /* Reduz o tamanho da fonte para caber */
-        text-align: center; /* Garante que o texto dentro do botão esteja centralizado */
-        white-space: normal; /* Permite quebra de linha se o texto for muito longo, mas o objetivo é evitar */
+        width: 100%; 
+        max-width: 320px;
+        padding: 15px 15px; 
+        font-size: 1rem; /* Tamanho padrão para botões mobile */
+        text-align: center;
+        white-space: normal;
     }
 
-    /* Ajuste específico para o botão de contato final para garantir centralização */
+    /* CORREÇÃO BOTÃO 4: Texto muito longo */
+    .cta-button.pioneer-cta {
+        font-size: 0.9rem; /* Reduz um pouco mais a fonte para caber */
+    }
+
+    /* CORREÇÃO BOTÃO 5: Espaçamento e Centralização */
     #contact .cta-button {
-        font-size: 1.2rem !important; /* Mantém um tamanho um pouco maior aqui, se houver espaço */
+        font-size: 1.2rem !important; 
         padding: 18px 25px !important;
-        max-width: 280px; /* Ajuste a largura máxima para "AGENDAR AGORA" */
-        margin: 0 auto; /* Centraliza o botão de contato final */
-        display: block; /* Para que margin: auto funcione */
+        max-width: 280px; 
+        margin: 40px auto 0 auto; /* ADICIONA MARGEM NO TOPO e centraliza */
+        display: block; 
     }
     /* === FIM CORREÇÃO DOS BOTÕES === */
 
@@ -581,8 +586,12 @@ section { padding: 100px 0; transition: all 0.8s ease-out; }
         font-size: 0.9rem;
     }
     .cta-button {
-        font-size: 0.85rem; /* Ajuste ainda menor para telas minúsculas */
+        font-size: 0.9rem; /* Ajuste geral */
         padding: 12px 10px;
+    }
+    /* Botão 4 com texto ainda menor */
+    .cta-button.pioneer-cta {
+        font-size: 0.8rem;
     }
     #contact .cta-button {
         font-size: 1rem !important;
