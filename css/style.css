@@ -460,6 +460,7 @@ section { padding: 100px 0; transition: all 0.8s ease-out; }
         width: 100%;
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
+        z-index: 9; /* Abaixo do hambúrguer, mas acima do resto do conteúdo */
     }
     #nav-links.active {
         transform: translateX(0);
@@ -477,8 +478,33 @@ section { padding: 100px 0; transition: all 0.8s ease-out; }
     /* Ajustes Gerais */
     .section-title { font-size: 2rem; }
     .two-columns { flex-direction: column; }
-    .hero-buttons { flex-direction: column; align-items: center; }
-    .cta-button { width: 100%; max-width: 300px; } /* Botões não cortam mais */
+    
+    /* === CORREÇÃO DOS BOTÕES === */
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center; /* Centraliza os botões */
+        gap: 15px; /* Espaço entre botões quando empilhados */
+    }
+    .cta-button {
+        width: 100%; /* Botões ocupam a largura total em mobile */
+        max-width: 320px; /* Limita a largura máxima para não ficarem gigantes em tablets pequenos */
+        padding: 15px 15px; /* Ajusta o padding para caber o texto */
+        font-size: 0.95rem; /* Reduz o tamanho da fonte para caber */
+        text-align: center; /* Garante que o texto dentro do botão esteja centralizado */
+        white-space: normal; /* Permite quebra de linha se o texto for muito longo, mas o objetivo é evitar */
+    }
+
+    /* Ajuste específico para o botão de contato final para garantir centralização */
+    #contact .cta-button {
+        font-size: 1.2rem !important; /* Mantém um tamanho um pouco maior aqui, se houver espaço */
+        padding: 18px 25px !important;
+        max-width: 280px; /* Ajuste a largura máxima para "AGENDAR AGORA" */
+        margin: 0 auto; /* Centraliza o botão de contato final */
+        display: block; /* Para que margin: auto funcione */
+    }
+    /* === FIM CORREÇÃO DOS BOTÕES === */
+
+
     .solutions-grid { grid-template-columns: 1fr; }
     .how-it-works-container.steps-4 { flex-direction: column !important; }
     .footer-container { flex-direction: column; text-align: center; }
@@ -486,4 +512,83 @@ section { padding: 100px 0; transition: all 0.8s ease-out; }
     .subtitle { font-size: 1.1rem; }
     #hero { padding-top: 100px; height: auto; min-height: 80vh; }
     .full-width-image { margin-top: 20px; }
+}
+
+/* Para telas entre 769px e 1024px (tablets e laptops pequenos) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    header {
+        padding: 20px 40px;
+    }
+    nav .logo {
+        font-size: 2.2rem;
+    }
+    nav ul li {
+        margin-left: 25px;
+    }
+    nav ul li a {
+        font-size: 0.95rem;
+    }
+
+    #hero .hero-content {
+        max-width: 80%;
+    }
+    .main-headline {
+        font-size: 3rem;
+    }
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    .hero-buttons .cta-button {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 80px 30px;
+    }
+    .section-title {
+        font-size: 2.2rem;
+    }
+    .container {
+        padding: 0 30px;
+    }
+
+    .solutions-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+
+    .how-it-works-container.steps-4 {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .steps-4 .step {
+        flex-basis: 45%;
+        max-width: 45%;
+    }
+
+    .footer-container {
+        padding: 0 30px;
+    }
+}
+
+/* Ajustes para telas muito pequenas, caso necessário (ex: iPhone SE) */
+@media (max-width: 375px) {
+    .main-headline {
+        font-size: 1.8rem;
+    }
+    .subtitle {
+        font-size: 0.9rem;
+    }
+    .cta-button {
+        font-size: 0.85rem; /* Ajuste ainda menor para telas minúsculas */
+        padding: 12px 10px;
+    }
+    #contact .cta-button {
+        font-size: 1rem !important;
+        padding: 15px 20px !important;
+    }
+    .section-title {
+        font-size: 1.6rem;
+    }
 }
